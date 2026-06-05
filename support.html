@@ -1,161 +1,740 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pdflex — Support</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0F172A;
-            color: #CBD5E1;
-            line-height: 1.7;
-            padding: 20px;
-        }
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        h1 {
-            color: #F8FAFC;
-            font-size: 2em;
-            margin-bottom: 8px;
-        }
-        .subtitle {
-            color: #6366F1;
-            font-size: 0.95em;
-            margin-bottom: 32px;
-        }
-        h2 {
-            color: #E2E8F0;
-            font-size: 1.3em;
-            margin-top: 32px;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #1E293B;
-        }
-        p { margin-bottom: 14px; }
-        .faq-item {
-            background: #1E293B;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 12px;
-        }
-        .faq-q {
-            color: #F8FAFC;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .contact-card {
-            background: linear-gradient(135deg, #312E81, #1E293B);
-            border-radius: 16px;
-            padding: 28px;
-            margin-top: 20px;
-            text-align: center;
-        }
-        .contact-card h3 {
-            color: #F8FAFC;
-            font-size: 1.2em;
-            margin-bottom: 12px;
-        }
-        .email-link {
-            display: inline-block;
-            background: #6366F1;
-            color: #FFF;
-            padding: 12px 28px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 8px;
-        }
-        .features-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin: 16px 0;
-        }
-        .feature {
-            background: #1E293B;
-            border-radius: 10px;
-            padding: 14px;
-            font-size: 0.9em;
-        }
-        .feature-icon {
-            font-size: 1.3em;
-            margin-bottom: 4px;
-        }
-        a { color: #818CF8; }
-        .updated {
-            color: #64748B;
-            font-size: 0.85em;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #1E293B;
-            text-align: center;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support — Pdflex</title>
+  <meta name="description" content="Get help with Pdflex. Find answers to frequently asked questions, troubleshooting guides, and contact our support team.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0A0F1E;
+      --bg-alt: #0F172A;
+      --surface: #1E293B;
+      --surface-hover: #253349;
+      --border: #334155;
+      --text: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --primary: #6366F1;
+      --primary-light: #818CF8;
+      --secondary: #8B5CF6;
+      --accent: #22D3EE;
+      --accent-green: #10B981;
+      --gradient-primary: linear-gradient(135deg, #6366F1, #8B5CF6);
+      --gradient-accent: linear-gradient(135deg, #6366F1, #22D3EE);
+      --shadow-primary: 0 4px 24px rgba(99,102,241,0.25);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --radius-xl: 24px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(10, 15, 30, 0.6);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(51, 65, 85, 0.4);
+      transition: var(--transition);
+    }
+
+    .navbar.scrolled {
+      background: rgba(10, 15, 30, 0.9);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    }
+
+    .navbar-inner {
+      max-width: 1200px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .nav-logo-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--gradient-primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 12px rgba(99,102,241,0.3);
+    }
+
+    .nav-logo-text {
+      font-size: 1.25rem;
+      font-weight: 800;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      border-radius: 1px;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-links a.active {
+      color: var(--text);
+    }
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      margin: 6px 0;
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse, rgba(99,102,241,0.1) 0%, transparent 60%);
+    }
+
+    .page-header-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.03em;
+    }
+
+    .page-header h1 .gradient-text {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-header p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ===== CONTENT ===== */
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    /* ===== FAQ ===== */
+    .faq-section {
+      margin-bottom: 4rem;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--primary-light);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item:hover {
+      border-color: rgba(99,102,241,0.3);
+    }
+
+    .faq-item.active {
+      border-color: rgba(99,102,241,0.4);
+      box-shadow: 0 4px 20px rgba(99,102,241,0.08);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 1.25rem 1.5rem;
+      background: var(--surface);
+      border: none;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: inherit;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: var(--transition);
+    }
+
+    .faq-question:hover {
+      background: var(--surface-hover);
+    }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(99,102,241,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+      background: rgba(99,102,241,0.2);
+    }
+
+    .faq-icon svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--primary-light);
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer-inner {
+      padding: 0 1.5rem 1.5rem;
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.8;
+    }
+
+    /* ===== TROUBLESHOOTING ===== */
+    .troubleshoot-section {
+      margin-bottom: 4rem;
+    }
+
+    .troubleshoot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .troubleshoot-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .troubleshoot-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(99,102,241,0.3);
+    }
+
+    .troubleshoot-card .icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .troubleshoot-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .troubleshoot-card p {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-section {
+      margin-bottom: 2rem;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.05));
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      text-align: center;
+    }
+
+    .contact-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: rgba(99,102,241,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 1.25rem;
+    }
+
+    .contact-box h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-box p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--gradient-primary);
+      color: white;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      box-shadow: var(--shadow-primary);
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(99,102,241,0.35);
+    }
+
+    .contact-note {
+      margin-top: 1rem;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-logo-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--gradient-primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+    }
+
+    .footer-copyright {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: rgba(10, 15, 30, 0.97);
+        backdrop-filter: blur(20px);
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid var(--border);
+        gap: 1.25rem;
+      }
+      .nav-toggle { display: block; }
+      .page-header { padding-top: 7rem; }
+      .contact-box { padding: 2rem 1.5rem; }
+      .troubleshoot-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1.25rem; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Support</h1>
-        <p class="subtitle">Pdflex — PDF Editor & Scanner</p>
 
-        <h2>Frequently Asked Questions</h2>
-
-        <div class="faq-item">
-            <p class="faq-q">How do I convert images to PDF?</p>
-            <p>Open Pdflex, tap "Image to PDF" from the home screen, select your images from the photo library, arrange them in your preferred order, and tap the convert button.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-q">How do I merge multiple PDFs?</p>
-            <p>Tap "Merge PDF" on the home screen, select the PDF files you want to combine, arrange their order, and tap merge. Your combined PDF will be saved automatically.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-q">Is my data safe?</p>
-            <p>Yes! All files are processed and stored locally on your device. We never upload your documents to any server. Your privacy is our priority.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-q">How do I scan a document?</p>
-            <p>Tap "Scan Document" on the home screen, point your camera at the document, and the app will automatically detect the edges. Tap capture to scan and save as PDF.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-q">Can I password-protect my PDFs?</p>
-            <p>Yes! Use the "Protect PDF" tool to add password encryption to any PDF file. You can also remove passwords using the "Unlock PDF" tool.</p>
-        </div>
-
-        <div class="faq-item">
-            <p class="faq-q">How do I switch between Dark and Light mode?</p>
-            <p>Go to Settings tab, find the "Appearance" section, and choose between Dark, Light, or System theme.</p>
-        </div>
-
-        <h2>App Features</h2>
-        <div class="features-list">
-            <div class="feature"><div class="feature-icon">📄</div> Image to PDF</div>
-            <div class="feature"><div class="feature-icon">🔀</div> Merge & Split</div>
-            <div class="feature"><div class="feature-icon">📷</div> Document Scanner</div>
-            <div class="feature"><div class="feature-icon">🔒</div> PDF Protection</div>
-            <div class="feature"><div class="feature-icon">✍️</div> Sign & Annotate</div>
-            <div class="feature"><div class="feature-icon">📦</div> Compress PDF</div>
-            <div class="feature"><div class="feature-icon">💧</div> Watermark</div>
-            <div class="feature"><div class="feature-icon">⚡</div> Batch Mode</div>
-        </div>
-
-        <h2>Contact Us</h2>
-        <p>We'd love to hear from you! Whether you have a question, found a bug, or want to suggest a feature, don't hesitate to reach out.</p>
-
-        <div class="contact-card">
-            <h3>Get in Touch</h3>
-            <p>We typically respond within 24 hours</p>
-            <a href="mailto:pdflex.app@gmail.com" class="email-link">pdflex.app@gmail.com</a>
-        </div>
-
-        <p class="updated">Pdflex v1.0.0 — Made with care</p>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">📄</div>
+        <span class="nav-logo-text">Pdflex</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="support.html" class="active">Support</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="page-header-content">
+      <h1>How Can We <span class="gradient-text">Help?</span></h1>
+      <p>Find answers to common questions or reach out to our support team directly.</p>
+    </div>
+  </section>
+
+  <div class="content">
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" id="faq-privacy">
+          Are my files uploaded to any server?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <strong>Absolutely not.</strong> All file processing happens entirely on your device. Your photos, PDFs, and documents never leave your phone. We don't have servers to upload to — everything is 100% on-device.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" id="faq-formats">
+          Which file formats are supported?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Pdflex supports <strong>JPG, PNG, HEIC</strong> images for conversion to PDF. For merging and splitting, all standard <strong>PDF</strong> files are supported. You can also use the camera to capture documents directly.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" id="faq-crash">
+          The app is crashing. What should I do?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Please try these steps:<br>
+            1. Force close the app and reopen it.<br>
+            2. Make sure your iOS is updated to the latest version.<br>
+            3. Delete and reinstall the app from the App Store.<br>
+            4. If the problem persists, contact us at <a href="mailto:pdflex.app@gmail.com" style="color: var(--primary-light);">pdflex.app@gmail.com</a> with your device model and iOS version.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" id="faq-quality">
+          Why does my PDF look low quality?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            The PDF quality depends on the original image resolution. For best results, use high-resolution photos. Images taken with your iPhone camera typically produce excellent PDF quality. Screenshots or heavily compressed images may appear lower quality.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" id="faq-limit">
+          Is there a limit on merging files?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            There is no artificial limit on the number of files you can merge. However, very large PDFs (hundreds of pages) may take longer to process depending on your device's available memory. For optimal performance, we recommend merging in batches if working with extremely large files.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" id="faq-offline">
+          Does Pdflex work without internet?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <strong>Yes!</strong> All PDF tools work completely offline. You don't need an internet connection to convert, merge, split, or scan documents. The only feature that requires internet is displaying advertisements.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" id="faq-ads">
+          How can I remove ads?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            We're working on a premium version that will remove all advertisements. Stay tuned for updates! In the meantime, ads help us keep the app free and continuously improved.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" id="faq-permissions">
+          Why does the app need photo/camera access?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <strong>Photo Library</strong> access is needed to select images for PDF conversion. <strong>Camera</strong> access is needed for the document scanning feature. These permissions are only used when you actively choose to use these features. We never access your photos or camera in the background.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Troubleshooting -->
+    <div class="troubleshoot-section">
+      <div class="section-label">Troubleshooting</div>
+      <h2 class="section-title">Quick Fixes</h2>
+
+      <div class="troubleshoot-grid">
+        <div class="troubleshoot-card">
+          <div class="icon">🔄</div>
+          <h4>Restart the App</h4>
+          <p>Swipe up to close Pdflex completely, then reopen. This resolves most temporary issues.</p>
+        </div>
+        <div class="troubleshoot-card">
+          <div class="icon">📲</div>
+          <h4>Update iOS</h4>
+          <p>Go to Settings → General → Software Update. Make sure you're running the latest iOS version.</p>
+        </div>
+        <div class="troubleshoot-card">
+          <div class="icon">🗑️</div>
+          <h4>Reinstall App</h4>
+          <p>Delete Pdflex and reinstall from the App Store. This ensures you have the latest version.</p>
+        </div>
+        <div class="troubleshoot-card">
+          <div class="icon">💾</div>
+          <h4>Free Up Storage</h4>
+          <p>Large PDF operations need free space. Check Settings → General → iPhone Storage.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-section">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Still Need Help?</h2>
+
+      <div class="contact-box">
+        <div class="contact-icon">✉️</div>
+        <h3>Get in Touch</h3>
+        <p>Can't find an answer? Our team is ready to help. Send us an email and we'll get back to you as soon as possible.</p>
+        <a href="mailto:pdflex.app@gmail.com" class="contact-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          pdflex.app@gmail.com
+        </a>
+        <p class="contact-note">We typically respond within 24 hours</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-logo-icon">📄</div>
+        <span class="footer-copyright">&copy; 2025 Pdflex. All rights reserved.</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="mailto:pdflex.app@gmail.com">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile menu
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isActive = item.classList.contains('active');
+
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+        // Toggle clicked
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>

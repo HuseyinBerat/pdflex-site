@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Pdflex</title>
+  <meta name="description" content="Privacy Policy for Pdflex — PDF Editor & Scanner. Learn how we protect your data and privacy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0A0F1E;
+      --bg-alt: #0F172A;
+      --surface: #1E293B;
+      --surface-hover: #253349;
+      --border: #334155;
+      --text: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --primary: #6366F1;
+      --primary-light: #818CF8;
+      --secondary: #8B5CF6;
+      --accent: #22D3EE;
+      --accent-green: #10B981;
+      --gradient-primary: linear-gradient(135deg, #6366F1, #8B5CF6);
+      --gradient-accent: linear-gradient(135deg, #6366F1, #22D3EE);
+      --shadow-primary: 0 4px 24px rgba(99,102,241,0.25);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --radius-xl: 24px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 0 2rem;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(10, 15, 30, 0.6);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(51, 65, 85, 0.4);
+      transition: var(--transition);
+    }
+
+    .navbar.scrolled {
+      background: rgba(10, 15, 30, 0.9);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    }
+
+    .navbar-inner {
+      max-width: 1200px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .nav-logo-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--gradient-primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 12px rgba(99,102,241,0.3);
+    }
+
+    .nav-logo-text {
+      font-size: 1.25rem;
+      font-weight: 800;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      border-radius: 1px;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--text); }
+    .nav-links a.active::after { width: 100%; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      margin: 6px 0;
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      padding: 8rem 2rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse, rgba(99,102,241,0.1) 0%, transparent 60%);
+    }
+
+    .page-header-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.03em;
+    }
+
+    .page-header h1 .gradient-text {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-header .last-updated {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* ===== CONTENT ===== */
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2rem 2rem 6rem;
+    }
+
+    /* Highlight box */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(34,211,238,0.05));
+      border: 1px solid rgba(16,185,129,0.2);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 3rem;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .highlight-box .icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .highlight-box p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .highlight-box strong {
+      color: var(--text);
+    }
+
+    /* Sections */
+    .policy-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .policy-section h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(51,65,85,0.5);
+    }
+
+    .policy-section h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary-light);
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    .policy-section p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      font-size: 0.93rem;
+    }
+
+    .policy-section ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .policy-section li {
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+      font-size: 0.93rem;
+    }
+
+    .policy-section li strong {
+      color: var(--text);
+    }
+
+    .policy-section a {
+      color: var(--primary-light);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .policy-section a:hover {
+      text-decoration: underline;
+    }
+
+    .no-collect-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .no-collect-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+    }
+
+    .no-collect-list li .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(239, 68, 68, 0.1);
+      flex-shrink: 0;
+    }
+
+    .no-collect-list li .badge svg {
+      width: 12px;
+      height: 12px;
+      stroke: #EF4444;
+      stroke-width: 3;
+      fill: none;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-logo-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--gradient-primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+    }
+
+    .footer-copyright {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: rgba(10, 15, 30, 0.97);
+        backdrop-filter: blur(20px);
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid var(--border);
+        gap: 1.25rem;
+      }
+      .nav-toggle { display: block; }
+      .page-header { padding-top: 7rem; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">📄</div>
+        <span class="nav-logo-text">Pdflex</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="privacy.html" class="active">Privacy</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="page-header-content">
+      <h1><span class="gradient-text">Privacy</span> Policy</h1>
+      <p class="last-updated">Last updated: June 5, 2025</p>
+    </div>
+  </section>
+
+  <div class="content">
+
+    <!-- TL;DR -->
+    <div class="highlight-box">
+      <span class="icon">🛡️</span>
+      <p><strong>TL;DR:</strong> Pdflex processes all files locally on your device. We do not collect, store, or transmit any of your files or personal data. Your privacy is our top priority.</p>
+    </div>
+
+    <!-- 1. Introduction -->
+    <div class="policy-section">
+      <h2>1. Introduction</h2>
+      <p>This Privacy Policy describes how Pdflex ("we", "our", or "us") handles information when you use our mobile application Pdflex — PDF Editor & Scanner ("App"). We are committed to protecting your privacy and being transparent about our practices.</p>
+    </div>
+
+    <!-- 2. Information We Do Not Collect -->
+    <div class="policy-section">
+      <h2>2. Information We Do Not Collect</h2>
+      <p>We want to be clear about what we do NOT do:</p>
+      <ul class="no-collect-list">
+        <li>
+          <span class="badge"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          We do <strong>not</strong> collect your personal information
+        </li>
+        <li>
+          <span class="badge"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          We do <strong>not</strong> access your files beyond the documents you select
+        </li>
+        <li>
+          <span class="badge"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          We do <strong>not</strong> upload your files to any server
+        </li>
+        <li>
+          <span class="badge"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          We do <strong>not</strong> track your location
+        </li>
+        <li>
+          <span class="badge"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          We do <strong>not</strong> require account creation or login
+        </li>
+      </ul>
+    </div>
+
+    <!-- 3. File Processing -->
+    <div class="policy-section">
+      <h2>3. File Processing</h2>
+      <p>All file processing — including PDF conversion, merging, splitting, scanning, and image extraction — happens entirely on your device. Your files are never uploaded to external servers. Temporary files created during processing are stored in your device's cache and are automatically cleaned up by the operating system.</p>
+    </div>
+
+    <!-- 4. Device Permissions -->
+    <div class="policy-section">
+      <h2>4. Device Permissions</h2>
+      <p>Our App may request the following permissions:</p>
+      <ul>
+        <li><strong>Photo Library:</strong> To select images for PDF conversion</li>
+        <li><strong>Camera:</strong> To capture photos and scan documents for PDF conversion</li>
+        <li><strong>File Access:</strong> To select and save PDF documents</li>
+      </ul>
+      <p>These permissions are only used for the specific features you initiate. We never access your photos, camera, or files without your explicit action.</p>
+    </div>
+
+    <!-- 5. Advertising -->
+    <div class="policy-section">
+      <h2>5. Advertising</h2>
+      <p>Our App displays advertisements provided by Google AdMob. Google may collect and use certain device data for ad serving, including:</p>
+      <ul>
+        <li>Device identifiers (IDFA on iOS)</li>
+        <li>IP address</li>
+        <li>General location (country/region level)</li>
+        <li>App usage data (ad interaction events)</li>
+      </ul>
+      <p>We use non-personalized ads by default. You can manage your ad preferences and opt out of personalized advertising through your device settings: <strong>Settings → Privacy & Security → Tracking</strong>.</p>
+      <p>For more information, see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
+    </div>
+
+    <!-- 6. Third-Party Services -->
+    <div class="policy-section">
+      <h2>6. Third-Party Services</h2>
+      <p>Our App uses the following third-party services:</p>
+      <ul>
+        <li><strong>Google AdMob:</strong> For displaying advertisements</li>
+        <li><strong>Expo/EAS:</strong> For app updates and build distribution</li>
+      </ul>
+    </div>
+
+    <!-- 7. Data Security -->
+    <div class="policy-section">
+      <h2>7. Data Security</h2>
+      <p>Since all processing occurs locally on your device, your files are protected by your device's built-in security features including encryption and biometric locks. We do not store any data on external servers.</p>
+    </div>
+
+    <!-- 8. Children's Privacy -->
+    <div class="policy-section">
+      <h2>8. Children's Privacy</h2>
+      <p>Our App is not directed to children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us immediately.</p>
+    </div>
+
+    <!-- 9. Your Rights -->
+    <div class="policy-section">
+      <h2>9. Your Rights</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li>Deny or revoke camera and photo library permissions at any time</li>
+        <li>Opt out of personalized advertising</li>
+        <li>Delete all locally stored files created by the App</li>
+        <li>Request information about data processing</li>
+      </ul>
+    </div>
+
+    <!-- 10. Changes -->
+    <div class="policy-section">
+      <h2>10. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify users of any material changes by updating the "Last updated" date at the top of this policy. We encourage you to review this policy periodically.</p>
+    </div>
+
+    <!-- 11. Contact -->
+    <div class="policy-section">
+      <h2>11. Contact Us</h2>
+      <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+      <p><a href="mailto:pdflex.app@gmail.com">pdflex.app@gmail.com</a></p>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-logo-icon">📄</div>
+        <span class="footer-copyright">&copy; 2025 Pdflex. All rights reserved.</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="mailto:pdflex.app@gmail.com">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile menu
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+  </script>
+
+</body>
+</html>
