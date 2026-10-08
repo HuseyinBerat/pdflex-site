@@ -1,585 +1,331 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — Pdflex</title>
-  <meta name="description" content="Privacy Policy for Pdflex — PDF Editor & Scanner. Learn how we protect your data and privacy.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
+<meta charset="utf-8">
+<link rel="canonical" href="https://pdflex.akademera.com/privacy">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pdflex Privacy Policy</title>
+<meta name="description" content="How the Pdflex app handles your files and data.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f8fafc;
+    --text: #0f172a;
+    --muted: #475569;
+    --border: #e2e8f0;
+    --accent: #4f46e5;
+    --note-bg: #eef2ff;
+  }
+  @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #0A0F1E;
-      --bg-alt: #0F172A;
-      --surface: #1E293B;
-      --surface-hover: #253349;
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
       --border: #334155;
-      --text: #F8FAFC;
-      --text-secondary: #94A3B8;
-      --text-muted: #64748B;
-      --primary: #6366F1;
-      --primary-light: #818CF8;
-      --secondary: #8B5CF6;
-      --accent: #22D3EE;
-      --accent-green: #10B981;
-      --gradient-primary: linear-gradient(135deg, #6366F1, #8B5CF6);
-      --gradient-accent: linear-gradient(135deg, #6366F1, #22D3EE);
-      --shadow-primary: 0 4px 24px rgba(99,102,241,0.25);
-      --radius: 16px;
-      --radius-sm: 10px;
-      --radius-xl: 24px;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --accent: #818cf8;
+      --note-bg: #1e1b4b;
     }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+  header { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .brand { font-weight: 700; font-size: 18px; }
+  .lang a { color: var(--muted); text-decoration: none; padding: 4px 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; }
+  .lang a:hover { color: var(--accent); border-color: var(--accent); }
+  h1 { font-size: 30px; line-height: 1.25; margin: 24px 0 4px; }
+  h2 { font-size: 20px; margin: 36px 0 8px; }
+  h3 { font-size: 17px; margin: 20px 0 4px; }
+  p, li { color: var(--text); }
+  .updated { color: var(--muted); font-size: 14px; margin: 0 0 24px; }
+  .note { background: var(--note-bg); border-radius: 10px; padding: 16px 20px; margin: 16px 0 8px; }
+  .note p { margin: 6px 0; }
+  ul { padding-left: 22px; }
+  li { margin: 4px 0; }
+  a { color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 15px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid var(--border); }
+  th { background: var(--surface); }
+  .table-scroll { overflow-x: auto; }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--border); padding-top: 16px; }
 
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.8;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ===== NAVBAR ===== */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      padding: 0 2rem;
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(10, 15, 30, 0.6);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-bottom: 1px solid rgba(51, 65, 85, 0.4);
-      transition: var(--transition);
-    }
-
-    .navbar.scrolled {
-      background: rgba(10, 15, 30, 0.9);
-      box-shadow: 0 4px 30px rgba(0,0,0,0.3);
-    }
-
-    .navbar-inner {
-      max-width: 1200px;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--text);
-    }
-
-    .nav-logo-icon {
-      width: 38px;
-      height: 38px;
-      background: var(--gradient-primary);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      box-shadow: 0 4px 12px rgba(99,102,241,0.3);
-    }
-
-    .nav-logo-text {
-      font-size: 1.25rem;
-      font-weight: 800;
-      background: var(--gradient-accent);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: var(--transition);
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gradient-primary);
-      border-radius: 1px;
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-links a.active { color: var(--text); }
-    .nav-links a.active::after { width: 100%; }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--text);
-      margin: 6px 0;
-      border-radius: 2px;
-      transition: var(--transition);
-    }
-
-    /* ===== PAGE HEADER ===== */
-    .page-header {
-      padding: 8rem 2rem 3rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .page-header::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(ellipse, rgba(99,102,241,0.1) 0%, transparent 60%);
-    }
-
-    .page-header-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .page-header h1 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 900;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.03em;
-    }
-
-    .page-header h1 .gradient-text {
-      background: var(--gradient-accent);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .page-header .last-updated {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    /* ===== CONTENT ===== */
-    .content {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 2rem 2rem 6rem;
-    }
-
-    /* Highlight box */
-    .highlight-box {
-      background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(34,211,238,0.05));
-      border: 1px solid rgba(16,185,129,0.2);
-      border-radius: var(--radius);
-      padding: 1.5rem 1.75rem;
-      margin-bottom: 3rem;
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-
-    .highlight-box .icon {
-      font-size: 1.3rem;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .highlight-box p {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-
-    .highlight-box strong {
-      color: var(--text);
-    }
-
-    /* Sections */
-    .policy-section {
-      margin-bottom: 2.5rem;
-    }
-
-    .policy-section h2 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid rgba(51,65,85,0.5);
-    }
-
-    .policy-section h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--primary-light);
-      margin: 1.25rem 0 0.5rem;
-    }
-
-    .policy-section p {
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
-      font-size: 0.93rem;
-    }
-
-    .policy-section ul {
-      padding-left: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .policy-section li {
-      color: var(--text-secondary);
-      margin-bottom: 0.5rem;
-      font-size: 0.93rem;
-    }
-
-    .policy-section li strong {
-      color: var(--text);
-    }
-
-    .policy-section a {
-      color: var(--primary-light);
-      text-decoration: none;
-      transition: var(--transition);
-    }
-
-    .policy-section a:hover {
-      text-decoration: underline;
-    }
-
-    .no-collect-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .no-collect-list li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 0;
-    }
-
-    .no-collect-list li .badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: rgba(239, 68, 68, 0.1);
-      flex-shrink: 0;
-    }
-
-    .no-collect-list li .badge svg {
-      width: 12px;
-      height: 12px;
-      stroke: #EF4444;
-      stroke-width: 3;
-      fill: none;
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      padding: 3rem 2rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-
-    .footer-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .footer-logo-icon {
-      width: 32px;
-      height: 32px;
-      background: var(--gradient-primary);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 15px;
-    }
-
-    .footer-copyright {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .footer-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: var(--transition);
-    }
-
-    .footer-links a:hover { color: var(--text); }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 72px;
-        left: 0;
-        right: 0;
-        background: rgba(10, 15, 30, 0.97);
-        backdrop-filter: blur(20px);
-        padding: 1.5rem 2rem;
-        border-bottom: 1px solid var(--border);
-        gap: 1.25rem;
-      }
-      .nav-toggle { display: block; }
-      .page-header { padding-top: 7rem; }
-      .footer-inner { flex-direction: column; text-align: center; }
-      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1.25rem; }
-    }
-  </style>
+  /* Language switch: English by default, #tr shows Turkish */
+  #tr { display: none; }
+  #tr:target { display: block; }
+  #tr:target ~ #en { display: none; }
+</style>
+<script>
+  if (!location.hash && /^tr\b/i.test(navigator.language || '')) location.replace('#tr');
+</script>
 </head>
 <body>
+<div class="wrap">
+  <header>
+    <div class="brand">Pdflex</div>
+    <nav class="lang"><a href="#en">English</a> <a href="#tr">Türkçe</a></nav>
+  </header>
 
-  <!-- Navbar -->
-  <nav class="navbar" id="navbar">
-    <div class="navbar-inner">
-      <a href="index.html" class="nav-logo">
-        <div class="nav-logo-icon">📄</div>
-        <span class="nav-logo-text">Pdflex</span>
-      </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#features">Features</a></li>
-        <li><a href="support.html">Support</a></li>
-        <li><a href="privacy.html" class="active">Privacy</a></li>
-      </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
+  <!-- ─────────────────────────── TÜRKÇE ─────────────────────────── -->
+  <article id="tr" lang="tr">
+    <h1>Gizlilik Politikası</h1>
+    <p class="updated">Son güncelleme: 9 Ekim 2026</p>
 
-  <!-- Page Header -->
-  <section class="page-header">
-    <div class="page-header-content">
-      <h1><span class="gradient-text">Privacy</span> Policy</h1>
-      <p class="last-updated">Last updated: June 5, 2025</p>
-    </div>
-  </section>
-
-  <div class="content">
-
-    <!-- TL;DR -->
-    <div class="highlight-box">
-      <span class="icon">🛡️</span>
-      <p><strong>TL;DR:</strong> Pdflex processes all files locally on your device. We do not collect, store, or transmit any of your files or personal data. Your privacy is our top priority.</p>
+    <div class="note">
+      <p><strong>Kısaca:</strong></p>
+      <p>Pdflex'teki araçların çoğu dosyalarınızı yalnızca cihazınızda işler.</p>
+      <p>Yedi dönüştürme aracı (aşağıda listelendi) seçtiğiniz dosyayı dönüştürme sunucumuza gönderir. Dosya, dönüştürülen sonuç size iletilir iletilmez silinir.</p>
+      <p>Hesap oluşturmanız gerekmez. Uygulama reklamlar için Google AdMob, kullanım istatistikleri için Firebase Analytics ve çökme raporları için Firebase Crashlytics kullanır.</p>
     </div>
 
-    <!-- 1. Introduction -->
-    <div class="policy-section">
-      <h2>1. Introduction</h2>
-      <p>This Privacy Policy describes how Pdflex ("we", "our", or "us") handles information when you use our mobile application Pdflex — PDF Editor & Scanner ("App"). We are committed to protecting your privacy and being transparent about our practices.</p>
+    <h2>1. Bu politika neyi kapsar</h2>
+    <p>Bu politika, iOS ve Android için Pdflex — PDF Editor &amp; Scanner uygulamasının ("Uygulama") ve Uygulamanın kullandığı dönüştürme sunucusunun (pdflex.akademera.com) verilerinizi nasıl işlediğini açıklar. "Biz" ifadesi Pdflex geliştiricisini ifade eder.</p>
+
+    <h2>2. Cihazınızda işlenen dosyalar</h2>
+    <p>Birleştirme, bölme, sıkıştırma, döndürme, filigran, imza, şifreleme, şifre kaldırma, tarama, görselden PDF ve diğer düzenleme araçları tamamen cihazınızda çalışır. Bu araçlarla işlediğiniz dosyalar bize gönderilmez.</p>
+    <p>"URL'den PDF" aracında, girdiğiniz web sayfasını doğrudan cihazınız indirir; sayfa sunucumuzdan geçmez.</p>
+
+    <h2>3. Dönüştürme sunucumuza gönderilen dosyalar</h2>
+    <p>Aşağıdaki araçlar dönüştürme işlemi için seçtiğiniz dosyayı şifreli bağlantı (HTTPS) üzerinden sunucumuza gönderir:</p>
+    <ul>
+      <li>PDF → Word, PDF → Excel, PDF → PowerPoint, PDF → Metin</li>
+      <li>Word → PDF, Excel → PDF, PowerPoint → PDF</li>
+    </ul>
+    <p>Bu araçlardan birini kullandığınızda sunucumuz şunları alır:</p>
+    <ul>
+      <li>Dosyanın kendisi ve adı</li>
+      <li>Seçtiğiniz çıktı biçimi</li>
+      <li>IP adresiniz (her internet bağlantısının doğal parçası)</li>
+      <li>Uygulamanın ilk kullanımda rastgele ürettiği bir kurulum kimliği. Bu kimlik yalnızca günlük dönüştürme sınırını uygulamak için kullanılır ve kimliğinizle ilişkilendirilmez.</li>
+    </ul>
+    <p><strong>Saklama:</strong></p>
+    <ul>
+      <li>Yüklenen dosya ve dönüştürülmüş sonuç, sonuç cihazınıza iletilir iletilmez silinir.</li>
+      <li>Dönüştürme başarısız olursa dosyalar hemen silinir.</li>
+      <li>Herhangi bir nedenle geride kalan dosyalar en geç 30 dakika içinde otomatik olarak silinir.</li>
+    </ul>
+    <p>Taranmış PDF'lerdeki metin, yine kendi sunucumuzda çalışan bir OCR yazılımıyla tanınır.</p>
+    <p>Dosyalarınızı açıp incelemeyiz, başka amaçla kullanmayız, yapay zekâ eğitimi için kullanmayız ve kimseyle paylaşmayız.</p>
+    <p><strong>Sunucu kayıtları:</strong> Sunucumuz güvenlik, kötüye kullanımın önlenmesi ve hata ayıklama amacıyla teknik kayıtlar tutar. Bu kayıtlar IP adresi, dosya adı, dosya boyutu, dönüştürme biçimi, zaman ve sonuç durumunu içerir; yalnızca bu amaçlarla kullanılır ve paylaşılmaz.</p>
+    <p><strong>Konum:</strong> Sunucu, Amazon Web Services'in Avrupa Birliği'ndeki (Frankfurt, Almanya) veri merkezinde barındırılır.</p>
+
+    <h2>4. Üçüncü taraf hizmetler</h2>
+    <div class="table-scroll">
+    <table>
+      <tr><th>Hizmet</th><th>Amaç</th><th>İşlenen veriler</th></tr>
+      <tr>
+        <td>Google AdMob</td>
+        <td>Reklam gösterimi</td>
+        <td>Reklam kimliği (Android'de AAID; iOS'ta izin vermediğiniz sürece IDFA kullanılamaz), IP adresi, cihaz ve uygulama bilgileri, reklam etkileşimleri</td>
+      </tr>
+      <tr>
+        <td>Firebase Analytics (Google)</td>
+        <td>Uygulamanın nasıl kullanıldığını anlamak</td>
+        <td>Kullanım olayları (açılış, görüntülenen ekranlar, kullanılan araçlar), uygulama örneği kimliği, cihaz modeli, işletim sistemi ve uygulama sürümü, dil, IP'den türetilen yaklaşık ülke/bölge</td>
+      </tr>
+      <tr>
+        <td>Firebase Crashlytics (Google)</td>
+        <td>Çökmeleri bulmak ve düzeltmek</td>
+        <td>Çökme raporları (hata izi, cihaz modeli, işletim sistemi ve uygulama sürümü, bellek/disk durumu), Crashlytics kurulum kimliği</td>
+      </tr>
+    </table>
+    </div>
+    <p>Bu hizmetlere dosya içerikleri, dosya adları veya parolalar gönderilmez.</p>
+    <p>Uygulama yalnızca <strong>kişiselleştirilmemiş reklamlar</strong> ister. iOS'ta uygulama takip izni (App Tracking Transparency) istemez.</p>
+    <p>Google bu verileri kendi politikalarına göre işler:</p>
+    <ul>
+      <li><a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a></li>
+      <li><a href="https://policies.google.com/technologies/partner-sites">Google'ın iş ortağı uygulamalardan gelen bilgileri nasıl kullandığı</a></li>
+      <li><a href="https://firebase.google.com/support/privacy">Firebase gizlilik bilgileri</a></li>
+    </ul>
+
+    <h2>5. Avrupa Ekonomik Alanı, Birleşik Krallık ve İsviçre</h2>
+    <p>Bu bölgelerdeki kullanıcılardan reklam ve analiz için Google'ın onay formuyla izin istenir.</p>
+    <p>İzin vermezseniz Firebase Analytics tanımlayıcı saklamaz ve reklam istekleri buna göre kısıtlanır.</p>
+    <p>Seçiminizi istediğiniz zaman <strong>Ayarlar → Gizlilik Tercihleri</strong> bölümünden değiştirebilir veya geri alabilirsiniz.</p>
+
+    <h2>6. Cihazınızda saklanan veriler</h2>
+    <p>Şunlar yalnızca cihazınızda saklanır:</p>
+    <ul>
+      <li>Oluşturduğunuz dosyalar</li>
+      <li>Son dosyalar listesi</li>
+      <li>Ayarlarınız (dil, tema, favoriler)</li>
+      <li>Yukarıda belirtilen kurulum kimliği</li>
+    </ul>
+    <p>Uygulamayı sildiğinizde bu veriler silinir. Önbelleği Ayarlar → Önbelleği Temizle'den boşaltabilirsiniz. Cihaz ayarlarınıza bağlı olarak bu veriler iCloud veya Google yedeklerinize dahil edilebilir.</p>
+
+    <h2>7. İzinler</h2>
+    <p>Uygulama yalnızca ilgili özelliği kullandığınızda şu izinleri ister:</p>
+    <ul>
+      <li><strong>Kamera:</strong> belge taramak ve fotoğraf çekmek için</li>
+      <li><strong>Fotoğraflar:</strong> PDF'e dönüştürmek istediğiniz görselleri seçmek için</li>
+      <li><strong>Dosyalar:</strong> yalnızca sizin seçtiğiniz belgeler</li>
+    </ul>
+    <p>Uygulama mikrofonu kullanmaz ve konumunuzu izlemez.</p>
+
+    <h2>8. Hukuki dayanaklar</h2>
+    <ul>
+      <li><strong>Dönüştürme işlemleri:</strong> talep ettiğiniz hizmetin sunulması</li>
+      <li><strong>AB/BK/İsviçre'de reklam ve analiz:</strong> açık rızanız</li>
+      <li><strong>Diğer bölgelerde reklam ve analiz:</strong> meşru menfaat</li>
+      <li><strong>Çökme raporları ve sunucu kayıtları:</strong> uygulamanın kararlı ve güvenli çalışmasına yönelik meşru menfaat</li>
+    </ul>
+    <p>Google, verileri uygun güvencelerle (ör. Standart Sözleşme Maddeleri) bulunduğunuz ülke dışında işleyebilir.</p>
+
+    <h2>9. Haklarınız</h2>
+    <p>GDPR ve 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında şu haklara sahipsiniz:</p>
+    <ul>
+      <li>Verilerinize erişme, düzeltme ve silme</li>
+      <li>İşlemeyi kısıtlama ve itiraz etme</li>
+      <li>Verdiğiniz rızayı geri alma</li>
+      <li>Bir denetim makamına (Türkiye'de Kişisel Verileri Koruma Kurumu'na) şikâyette bulunma</li>
+    </ul>
+    <p>Ad veya e-posta gibi bilgiler istemediğimiz için verileri çoğu zaman kişisel olarak size bağlayamayız. Yine de tüm talepleriniz için bize yazabilirsiniz.</p>
+    <p>Android'de reklam kimliğinizi cihaz ayarlarından sıfırlayabilir veya silebilirsiniz.</p>
+
+    <h2>10. Çocuklar</h2>
+    <p>Uygulama 13 yaşın altındaki çocuklara yönelik değildir ve bu yaştaki çocuklardan bilerek veri toplamayız.</p>
+
+    <h2>11. Değişiklikler</h2>
+    <p>Bu politikayı güncelleyebiliriz. Güncel sürüm her zaman bu sayfada, yukarıdaki tarihle yayınlanır.</p>
+
+    <h2>12. İletişim</h2>
+    <p>Sorularınız ve talepleriniz için: <a href="mailto:pdflex.app@gmail.com">pdflex.app@gmail.com</a></p>
+  </article>
+
+  <!-- ─────────────────────────── ENGLISH ─────────────────────────── -->
+  <article id="en" lang="en">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: October 9, 2026</p>
+
+    <div class="note">
+      <p><strong>In short:</strong></p>
+      <p>Most Pdflex tools process your files only on your device.</p>
+      <p>Seven conversion tools (listed below) send the file you select to our conversion server. The file is deleted as soon as the converted result is delivered to you.</p>
+      <p>No account is required. The app uses Google AdMob for ads, Firebase Analytics for usage statistics and Firebase Crashlytics for crash reports.</p>
     </div>
 
-    <!-- 2. Information We Do Not Collect -->
-    <div class="policy-section">
-      <h2>2. Information We Do Not Collect</h2>
-      <p>We want to be clear about what we do NOT do:</p>
-      <ul class="no-collect-list">
-        <li>
-          <span class="badge"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-          We do <strong>not</strong> collect your personal information
-        </li>
-        <li>
-          <span class="badge"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-          We do <strong>not</strong> access your files beyond the documents you select
-        </li>
-        <li>
-          <span class="badge"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-          We do <strong>not</strong> upload your files to any server
-        </li>
-        <li>
-          <span class="badge"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-          We do <strong>not</strong> track your location
-        </li>
-        <li>
-          <span class="badge"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-          We do <strong>not</strong> require account creation or login
-        </li>
-      </ul>
+    <h2>1. What this policy covers</h2>
+    <p>This policy explains how the Pdflex — PDF Editor &amp; Scanner app for iOS and Android (the "App") and the conversion server it uses (pdflex.akademera.com) handle your data. "We" means the developer of Pdflex.</p>
+
+    <h2>2. Files processed on your device</h2>
+    <p>Merging, splitting, compressing, rotating, watermarking, signing, encrypting, unlocking, scanning, image-to-PDF and the other editing tools run entirely on your device. Files you process with these tools are not sent to us.</p>
+    <p>With the "URL to PDF" tool, your device downloads the web page you enter directly; it does not pass through our server.</p>
+
+    <h2>3. Files sent to our conversion server</h2>
+    <p>The following tools send the file you select to our server over an encrypted connection (HTTPS) to convert it:</p>
+    <ul>
+      <li>PDF → Word, PDF → Excel, PDF → PowerPoint, PDF → Text</li>
+      <li>Word → PDF, Excel → PDF, PowerPoint → PDF</li>
+    </ul>
+    <p>When you use one of these tools, our server receives:</p>
+    <ul>
+      <li>The file itself and its name</li>
+      <li>The output format you chose</li>
+      <li>Your IP address (an inherent part of any internet connection)</li>
+      <li>A random installation ID that the App generates on first use. It is used only to enforce the daily conversion limit and is not linked to your identity.</li>
+    </ul>
+    <p><strong>Retention:</strong></p>
+    <ul>
+      <li>The uploaded file and the converted result are deleted as soon as the result has been delivered to your device.</li>
+      <li>If a conversion fails, the files are deleted immediately.</li>
+      <li>Any files left behind for any reason are deleted automatically within 30 minutes at most.</li>
+    </ul>
+    <p>Text in scanned PDFs is recognized by OCR software that also runs on our own server.</p>
+    <p>We do not open or review your files, use them for any other purpose, use them to train AI models, or share them with anyone.</p>
+    <p><strong>Server logs:</strong> Our server keeps technical logs for security, abuse prevention and troubleshooting. They contain the IP address, file name, file size, conversion format, time and result status. They are used only for these purposes and are not shared.</p>
+    <p><strong>Location:</strong> The server is hosted in an Amazon Web Services data center in the European Union (Frankfurt, Germany).</p>
+
+    <h2>4. Third-party services</h2>
+    <div class="table-scroll">
+    <table>
+      <tr><th>Service</th><th>Purpose</th><th>Data processed</th></tr>
+      <tr>
+        <td>Google AdMob</td>
+        <td>Showing ads</td>
+        <td>Advertising ID (AAID on Android; on iOS the IDFA is unavailable unless you allow it), IP address, device and app information, ad interactions</td>
+      </tr>
+      <tr>
+        <td>Firebase Analytics (Google)</td>
+        <td>Understanding how the App is used</td>
+        <td>Usage events (app opens, screens viewed, tools used), app instance ID, device model, OS and app version, language, approximate country/region derived from the IP address</td>
+      </tr>
+      <tr>
+        <td>Firebase Crashlytics (Google)</td>
+        <td>Finding and fixing crashes</td>
+        <td>Crash reports (stack trace, device model, OS and app version, memory/disk state), Crashlytics installation ID</td>
+      </tr>
+    </table>
     </div>
+    <p>No file contents, file names or passwords are sent to these services.</p>
+    <p>The App requests <strong>non-personalized ads</strong> only. On iOS, the App does not ask for tracking permission (App Tracking Transparency).</p>
+    <p>Google processes this data under its own policies:</p>
+    <ul>
+      <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+      <li><a href="https://policies.google.com/technologies/partner-sites">How Google uses information from apps that use its services</a></li>
+      <li><a href="https://firebase.google.com/support/privacy">Privacy and security in Firebase</a></li>
+    </ul>
 
-    <!-- 3. File Processing -->
-    <div class="policy-section">
-      <h2>3. File Processing</h2>
-      <p>All file processing — including PDF conversion, merging, splitting, scanning, and image extraction — happens entirely on your device. Your files are never uploaded to external servers. Temporary files created during processing are stored in your device's cache and are automatically cleaned up by the operating system.</p>
-    </div>
+    <h2>5. European Economic Area, United Kingdom and Switzerland</h2>
+    <p>Users in these regions are asked for consent to ads and analytics through Google's consent form.</p>
+    <p>If you do not consent, Firebase Analytics does not store identifiers and ad requests are limited accordingly.</p>
+    <p>You can change or withdraw your choice at any time in <strong>Settings → Privacy Choices</strong>.</p>
 
-    <!-- 4. Device Permissions -->
-    <div class="policy-section">
-      <h2>4. Device Permissions</h2>
-      <p>Our App may request the following permissions:</p>
-      <ul>
-        <li><strong>Photo Library:</strong> To select images for PDF conversion</li>
-        <li><strong>Camera:</strong> To capture photos and scan documents for PDF conversion</li>
-        <li><strong>File Access:</strong> To select and save PDF documents</li>
-      </ul>
-      <p>These permissions are only used for the specific features you initiate. We never access your photos, camera, or files without your explicit action.</p>
-    </div>
+    <h2>6. Data stored on your device</h2>
+    <p>The following are stored only on your device:</p>
+    <ul>
+      <li>Files you create</li>
+      <li>The recent files list</li>
+      <li>Your settings (language, theme, favorites)</li>
+      <li>The installation ID mentioned above</li>
+    </ul>
+    <p>This data is removed when you uninstall the App. You can empty the cache in Settings → Clear Cache. Depending on your device settings, this data may be included in your iCloud or Google backups.</p>
 
-    <!-- 5. Advertising -->
-    <div class="policy-section">
-      <h2>5. Advertising</h2>
-      <p>Our App displays advertisements provided by Google AdMob. Google may collect and use certain device data for ad serving, including:</p>
-      <ul>
-        <li>Device identifiers (IDFA on iOS)</li>
-        <li>IP address</li>
-        <li>General location (country/region level)</li>
-        <li>App usage data (ad interaction events)</li>
-      </ul>
-      <p>We use non-personalized ads by default. You can manage your ad preferences and opt out of personalized advertising through your device settings: <strong>Settings → Privacy & Security → Tracking</strong>.</p>
-      <p>For more information, see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
-    </div>
+    <h2>7. Permissions</h2>
+    <p>The App asks for these permissions only when you use the related feature:</p>
+    <ul>
+      <li><strong>Camera:</strong> to scan documents and take photos</li>
+      <li><strong>Photos:</strong> to select images you want to convert to PDF</li>
+      <li><strong>Files:</strong> only the documents you choose</li>
+    </ul>
+    <p>The App does not use the microphone and does not track your location.</p>
 
-    <!-- 6. Third-Party Services -->
-    <div class="policy-section">
-      <h2>6. Third-Party Services</h2>
-      <p>Our App uses the following third-party services:</p>
-      <ul>
-        <li><strong>Google AdMob:</strong> For displaying advertisements</li>
-        <li><strong>Expo/EAS:</strong> For app updates and build distribution</li>
-      </ul>
-    </div>
+    <h2>8. Legal bases</h2>
+    <ul>
+      <li><strong>Conversions:</strong> providing the service you request</li>
+      <li><strong>Ads and analytics in the EEA/UK/Switzerland:</strong> your consent</li>
+      <li><strong>Ads and analytics elsewhere:</strong> legitimate interests</li>
+      <li><strong>Crash reports and server logs:</strong> our legitimate interest in keeping the App stable and secure</li>
+    </ul>
+    <p>Google may process data outside your country under appropriate safeguards (such as Standard Contractual Clauses).</p>
 
-    <!-- 7. Data Security -->
-    <div class="policy-section">
-      <h2>7. Data Security</h2>
-      <p>Since all processing occurs locally on your device, your files are protected by your device's built-in security features including encryption and biometric locks. We do not store any data on external servers.</p>
-    </div>
+    <h2>9. Your rights</h2>
+    <p>Under the GDPR and similar laws (including Turkey's KVKK), you have the right to:</p>
+    <ul>
+      <li>Access, correct and delete your data</li>
+      <li>Restrict or object to processing</li>
+      <li>Withdraw consent you have given</li>
+      <li>Lodge a complaint with a supervisory authority</li>
+    </ul>
+    <p>Because we do not ask for your name or email, we usually cannot link data to you personally. You can still contact us with any request.</p>
+    <p>On Android, you can reset or delete your advertising ID in your device settings.</p>
 
-    <!-- 8. Children's Privacy -->
-    <div class="policy-section">
-      <h2>8. Children's Privacy</h2>
-      <p>Our App is not directed to children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us immediately.</p>
-    </div>
+    <h2>10. Children</h2>
+    <p>The App is not directed to children under 13, and we do not knowingly collect data from children of that age.</p>
 
-    <!-- 9. Your Rights -->
-    <div class="policy-section">
-      <h2>9. Your Rights</h2>
-      <p>You have the right to:</p>
-      <ul>
-        <li>Deny or revoke camera and photo library permissions at any time</li>
-        <li>Opt out of personalized advertising</li>
-        <li>Delete all locally stored files created by the App</li>
-        <li>Request information about data processing</li>
-      </ul>
-    </div>
+    <h2>11. Changes</h2>
+    <p>We may update this policy. The current version is always published on this page with the date shown above.</p>
 
-    <!-- 10. Changes -->
-    <div class="policy-section">
-      <h2>10. Changes to This Policy</h2>
-      <p>We may update this Privacy Policy from time to time. We will notify users of any material changes by updating the "Last updated" date at the top of this policy. We encourage you to review this policy periodically.</p>
-    </div>
+    <h2>12. Contact</h2>
+    <p>For questions and requests: <a href="mailto:pdflex.app@gmail.com">pdflex.app@gmail.com</a></p>
+  </article>
 
-    <!-- 11. Contact -->
-    <div class="policy-section">
-      <h2>11. Contact Us</h2>
-      <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-      <p><a href="mailto:pdflex.app@gmail.com">pdflex.app@gmail.com</a></p>
-    </div>
-
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-left">
-        <div class="footer-logo-icon">📄</div>
-        <span class="footer-copyright">&copy; 2025 Pdflex. All rights reserved.</span>
-      </div>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="support.html">Support</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="mailto:pdflex.app@gmail.com">Contact</a></li>
-      </ul>
-    </div>
-  </footer>
-
-  <script>
-    // Navbar scroll
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 40);
-    });
-
-    // Mobile menu
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('active'));
-    });
-  </script>
-
+  <footer>Pdflex · <a href="terms.html">Terms of Service / Kullanım Koşulları</a></footer>
+</div>
 </body>
 </html>
